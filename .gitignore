@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+__results___files/
+
+# Entornos
+.venv/
+venv/
+env/
+
+# IDE / editor
+.vscode/
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.wsuo
+*.vsidx
+*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Variables locales
+.env
+.env.*
+
+# Datos locales o pesados
+data/raw/
+data/interim/*
+!data/interim/.gitkeep
+data/csv para power bi/
+*.pbix
+
+# Artefactos generados
+outputs/*
+!outputs/.gitkeep
+models/*.docx
+models/*.pptx
+
+# Opcional: descomenta estas lineas si quieres subir solo codigo/notebooks
+# y no los artefactos del forecasting necesarios para la demo/API.
+# models/*.npy
+# models/*.csv
+# models/*.json
+# models/*.txt

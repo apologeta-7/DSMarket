@@ -1,0 +1,7 @@
+model,MAE,RMSE,WAPE (%),Bias (%),Underforecast (%)
+E0a — Lag 7,1.2058,2.41,86.9,0.18,28.5
+E0b — Media lags 7-28,1.0463,2.188,75.46,-0.64,29.71
+E1 — LightGBM global,0.8896,2.015,64.1,-26.85,35.1
+E2 — LightGBM + exógenas,0.8871,2.01,63.98,-26.8,35.05
+E3 — LightGBM + clusters,0.89,2.02,64.2,-26.91,35.15
+E2 — LightGBM + calibración,0.9739,2.1999,70.25,-0.03,28.58
