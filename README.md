@@ -41,11 +41,10 @@
 | Nombre | Rol |
 |--------|-----|
 | **Alejandro Torregrosa** | Data Science & Forecasting |
-| **Jesús Durán** | Data Science & Clustering |
-| **Mateo Pascual** | Data Science & Pipeline/API |
+| **Jesús Durán** | Data Science & Pipline / API|
+| **Mateo Pascual** | Data Science & Clustering  |
 
-**Tutores:** Raquel Revilla Bous · Matías José Hermida
-*(Senior Data Scientists — CaixaBank)*
+**Tutores:** Raquel Revilla Bous
 
 ---
 
@@ -82,40 +81,81 @@ El proyecto se articula alrededor de cuatro preguntas planteadas por la direcci�
 ```
 DSMarket_TFM/
 │
-├── 📓 Notebooks
-│   ├── 00-tfm-dsmarket.ipynb          # Portada, índice y guía de lectura
-│   ├── 01-eda-business.ipynb          # Análisis exploratorio e historia de negocio
-│   ├── 02-clustering.ipynb            # Segmentación de productos y tiendas
-│   ├── 03-forecasting-final.ipynb     # Construcción y evaluación del modelo
-│   ├── 04-stock.ipynb                 # Propuesta de reposición de stock
-│   └── 05-pipeline-api.ipynb          # Pipeline modular y diseño de API
+├── 📓 notebook/
+│   ├── 00_tfm_dsmarket.ipynb          # Portada, índice y guía de lectura
+│   ├── 01_eda-business.ipynb          # Análisis exploratorio e historia de negocio
+│   ├── 02_clustering.ipynb            # Segmentación de productos y tiendas
+│   ├── 03_forecasting-final.ipynb     # Construcción y evaluación del modelo
+│   ├── 04_stock.ipynb                 # Propuesta de reposición de stock
+│   └── 05_pipeline_api.ipynb          # Pipeline modular y diseño de API
 │
 ├── 📦 src/                            # Código modular reutilizable
 │   ├── __init__.py
 │   ├── config.py                      # Parámetros globales del proyecto
 │   ├── paths.py                       # Rutas portables entre entornos
 │   ├── preprocessing.py               # Limpieza y transformación de datos
+│   ├── preprocessing_suggested.py     # Versión alternativa de preprocesado
 │   ├── forecasting_utils.py           # Utilidades del modelo de forecasting
 │   ├── plotting.py                    # Visualizaciones reutilizables
-│   └── api/                           # Diseño y demostración del endpoint
+│   ├── utils.py                       # Funciones de apoyo generales
+│   └── api/                           # Endpoint FastAPI
+│       ├── __init__.py
+│       ├── main.py                    # Aplicación FastAPI
+│       ├── schemas.py                 # Modelos Pydantic (request/response)
+│       └── service.py                 # Lógica de inferencia
 │
 ├── 📂 data/
 │   ├── raw/                           # Datos originales (solo lectura)
-│   ├── interim/                       # Datos en proceso de transformación
-│   └── processed/                     # Datos listos para modelado
+│   ├── processed/                     # Datos listos para modelado
+│   │   ├── clusters_productos.csv
+│   │   └── clusters_tiendas.csv
+│   └── csv para power bi/             # Exportaciones para el dashboard BI
+│       ├── clusters_productos.csv
+│       ├── clusters_tiendas.csv
+│       ├── dim_category.csv
+│       ├── dim_city.csv
+│       ├── dim_week.csv
+│       ├── fact_city_cat_week.csv
+│       ├── fact_city_week.csv
+│       ├── fact_forecast_next_week_demo.csv
+│       └── profile_priority.csv
 │
 ├── 🤖 models/
-│   ├── model_E2.txt                   # Modelo LightGBM final (E2)
-│   ├── calibration_factor.pkl         # Factor de calibración global (×1.3657)
-│   ├── metrics_final_calibrado.csv    # Métricas del modelo en test
-│   ├── preds_E2.parquet               # Predicciones brutas E2
-│   ├── preds_E2_calibrado.parquet     # Predicciones calibradas
-│   ├── weekly_calibrado.parquet       # Agregación semanal calibrada
-│   ├── true_test.parquet              # Valores reales del período de test
-│   └── idx_test.parquet               # Índices del split de test
+│   ├── model_E1.txt                   # Modelo LightGBM E1 (lags + rolling + calendario)
+│   ├── model_E2.txt                   # Modelo LightGBM E2 (+ precio + eventos)
+│   ├── model_E3.txt                   # Modelo LightGBM E3 (+ cluster de producto)
+│   ├── calibration_factor.json        # Factor de calibración global (×1.3657)
+│   ├── metrics_final.csv              # Métricas comparativas todos los modelos
+│   ├── metrics_final_calibrado.csv    # Métricas del modelo E2 calibrado en test
+│   ├── preds_E1.npy                   # Predicciones brutas E1
+│   ├── preds_E2.npy                   # Predicciones brutas E2
+│   ├── preds_E2_calibrado.npy         # Predicciones E2 calibradas
+│   ├── preds_E3.npy                   # Predicciones brutas E3
+│   ├── weekly_calibrado.csv           # Agregación semanal calibrada
+│   ├── y_true_test.npy                # Valores reales del período de test
+│   └── idx_test.npy                   # Índices del split de test
 │
 ├── 📊 outputs/                        # Exportables y resultados finales
-├── 📄 reports/                        # Memoria y presentación del TFM
+│   ├── g1_serie_temporal.png
+│   ├── g2_patron_semanal.png
+│   ├── g3_heatmap.png
+│   ├── g4_codo_silueta.png
+│   ├── g5_scatter_clusters.png
+│   ├── g6_pred_vs_real.png
+│   ├── g7_sesgo_calibracion.png
+│   ├── DSMarket Forecast API - Swagger UI.pdf
+│   ├── DSMarket Forecast API (2) - Swagger UI.pdf
+│   └── powerbi/
+│       └── TFM mateo v01.pbix         # Dashboard Power BI
+│
+├── 📄 reports/                        # CSVs de apoyo para informes
+│   ├── dim_category.csv
+│   ├── dim_city.csv
+│   ├── dim_week.csv
+│   ├── fact_city_week.csv
+│   └── profile_priority.csv
+│
+├── EXECUTION_ORDER.md                 # Guía de ejecución y entornos recomendados
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -132,12 +172,12 @@ La secuencia recomendada sigue esta lógica:
 
 | # | Notebook | Propósito | Entorno recomendado |
 |---|----------|-----------|---------------------|
-| 00 | `00-tfm-dsmarket.ipynb` | Portada, índice y contexto del proyecto | Cualquiera |
-| 01 | `01-eda-business.ipynb` | Análisis exploratorio y lectura de negocio | Colab / Kaggle |
-| 02 | `02-clustering.ipynb` | Segmentación de productos (K-Means, K=4) | Local / Kaggle |
-| 03 | `03-forecasting-final.ipynb` | Forecasting LightGBM — núcleo técnico | Kaggle (RAM ampliada) |
-| 04 | `04-stock.ipynb` | Propuesta operativa de reposición | Cualquiera |
-| 05 | `05-pipeline-api.ipynb` | Pipeline modular y diseño de API | Local |
+| 00 | `00_tfm_dsmarket.ipynb` | Portada, índice y contexto del proyecto | Cualquiera |
+| 01 | `01_eda-business.ipynb` | Análisis exploratorio y lectura de negocio | Colab / Kaggle |
+| 02 | `02_clustering.ipynb` | Segmentación de productos (K-Means, K=4) | Local / Kaggle |
+| 03 | `03_forecasting-final.ipynb` | Forecasting LightGBM — núcleo técnico | Kaggle (RAM ampliada) |
+| 04 | `04_stock.ipynb` | Propuesta operativa de reposición | Cualquiera |
+| 05 | `05_pipeline_api.ipynb` | Pipeline modular y diseño de API | Local |
 
 > 💡 El notebook 03 requiere memoria ampliada en Kaggle por el tamaño del panel tienda × producto × día.
 
@@ -201,12 +241,12 @@ Si solo quieres reproducir la inferencia sin reentrenar:
 
 ```python
 import lightgbm as lgb
-import pickle
+import json
 
 # Cargar modelo y factor de calibración
 model = lgb.Booster(model_file="models/model_E2.txt")
-with open("models/calibration_factor.pkl", "rb") as f:
-    calib_factor = pickle.load(f)  # 1.3657
+with open("models/calibration_factor.json", "r") as f:
+    calib_factor = json.load(f)  # 1.3657
 
 # Aplicar predicción calibrada
 pred_raw = model.predict(X)
