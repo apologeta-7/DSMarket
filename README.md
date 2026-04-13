@@ -316,7 +316,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 **Nuclio Digital School — Máster en Data Science & AI**
 
-*Trabajo Final de Máster — DSMarket — 2025*
+*Trabajo Final de Máster — DSMarket — 2026*
 
 *Mateo Pascual Esseiva*
 
