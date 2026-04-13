@@ -36,15 +36,16 @@
 
 ---
 
-## 👥 Autores
+## 👤 Autor
 
-| Nombre | Rol |
-|--------|-----|
-| **Alejandro Torregrosa** | Data Science & Forecasting |
-| **Jesús Durán** | Data Science & Pipline / API|
-| **Mateo Pascual** | Data Science & Clustering  |
+**Mateo Pascual Esseiva**  
+📍 Spain · Open to remote  
+💼 Data Analyst | MSc Data Science & AI (Nuclio Digital School)  
+📧 [m.pascual.ess@gmail.com](mailto:m.pascual.ess@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/mateopascualesseiva/)  
+🐙 [GitHub](https://github.com/apologeta-7)
 
-**Tutores:** Raquel Revilla Bous
+**Tutor:** Raquel Revilla Bous — Nuclio Digital School
 
 ---
 
@@ -315,8 +316,8 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 **Nuclio Digital School — Máster en Data Science & AI**
 
-*Proyecto Final — DSMarket — 2025*
+*Trabajo Final de Máster — DSMarket — 2025*
 
-*Alejandro Torregrosa · Jesús Durán · Mateo Pascual*
+*Mateo Pascual Esseiva*
 
 </div>
