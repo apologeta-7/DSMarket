@@ -3,11 +3,11 @@
 <div align="center">
 
 # DSMarket
-## Trabajo Final de Máster — Data Science & AI
+## Master's Final Project — Data Science & AI
 **Nuclio Digital School · 2025**
 
-*Forecasting de demanda, propuesta de reposición de stock*
-*y planteamiento de productivización para una cadena de supermercados*
+*Demand forecasting, stock replenishment proposal*
+*and productization approach for a supermarket chain*
 
 ---
 
@@ -21,96 +21,92 @@
 
 ---
 
-## 📋 Índice
+## 📋 Table of Contents
 
-- [Autores](#-autores)
-- [Descripción del proyecto](#-descripción-del-proyecto)
-- [Preguntas clave](#-preguntas-clave)
-- [Estructura del repositorio](#-estructura-del-repositorio)
-- [Guía de lectura de los notebooks](#-guía-de-lectura-de-los-notebooks)
-- [Dataset y fuentes de datos](#-dataset-y-fuentes-de-datos)
-- [Instalación y configuración](#-instalación-y-configuración)
-- [Tecnologías utilizadas](#-tecnologías-utilizadas)
-- [Resultados principales](#-resultados-principales)
-- [Licencia](#-licencia)
+- [Author](#-author)
+- [Project description](#-project-description)
+- [Key questions](#-key-questions)
+- [Repository structure](#-repository-structure)
+- [Notebook reading guide](#-notebook-reading-guide)
+- [Dataset and data sources](#-dataset-and-data-sources)
+- [Installation and setup](#-installation-and-setup)
+- [Technologies used](#-technologies-used)
+- [Main results](#-main-results)
+- [License](#-license)
 
 ---
 
-## 👤 Autor
+## 👤 Author
 
 **Mateo Pascual Esseiva**  
 📍 Spain · Open to remote  
 💼 Data Analyst | MSc Data Science & AI (Nuclio Digital School)  
-📧 [m.pascual.ess@gmail.com](mailto:m.pascual.ess@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/mateopascualesseiva/)  
-🐙 [GitHub](https://github.com/apologeta-7)
 
-**Tutor:** Raquel Revilla Bous — Nuclio Digital School
 
 ---
 
-## 🎯 Descripción del proyecto
+## 🎯 Project description
 
-**DSMarket** (anteriormente TradiStores) es una pequeña cadena de supermercados en Estados Unidos que se encuentra en una fase temprana de transformación digital. Opera en **3 ciudades** (Nueva York, Boston y Philadelphia) con **10 tiendas activas** y **3 categorías de producto**: SUPERMARKET, HOME & GARDEN y ACCESSORIES.
+**DSMarket** (formerly TradiStores) is a small supermarket chain in the United States that is in an early stage of digital transformation. It operates in **3 cities** (New York, Boston and Philadelphia) with **10 active stores** and **3 product categories**: SUPERMARKET, HOME & GARDEN and ACCESSORIES.
 
-Este TFM aborda un caso de uso de **role-play**: el equipo asume el papel de Nicole Chen, Data Scientist Sénior, encargada de impulsar iniciativas analíticas para el área financiera y operativa.
+This Master's Final Project addresses a **role-play** use case: the team assumes the role of Nicole Chen, Senior Data Scientist, responsible for driving analytics initiatives for the finance and operations areas.
 
-El proyecto cubre el ciclo completo desde la exploración de datos hasta una propuesta de productivización:
+The project covers the full cycle from data exploration to a productization proposal:
 
-```
-EDA y negocio → Segmentación → Forecasting → Reposición de stock → Pipeline y API
+```text
+EDA and business → Segmentation → Forecasting → Stock replenishment → Pipeline and API
 ```
 
 ---
 
-## ❓ Preguntas clave
+## ❓ Key questions
 
-El proyecto se articula alrededor de cuatro preguntas planteadas por la dirección de DSMarket:
+The project is structured around four questions raised by DSMarket's leadership:
 
-> **1.** ¿Sigue siendo válido predecir a nivel tienda × producto y agregar después a niveles superiores?
+> **1.** Is it still valid to forecast at store × product level and then aggregate to higher levels?
 >
-> **2.** ¿Cómo construir un forecasting de demanda con horizonte de 28 días de forma razonable y defendible?
+> **2.** How can we build a reasonable and defensible 28-day demand forecast?
 >
-> **3.** ¿Cómo conectar ese forecasting con una lógica operativa de reposición de stock?
+> **3.** How can that forecast be connected to an operational stock replenishment logic?
 >
-> **4.** ¿Cómo plantear una vía realista de productivización mediante código modular y una API?
+> **4.** How can we define a realistic productization path through modular code and an API?
 
 ---
 
-## 📁 Estructura del repositorio
+## 📁 Repository structure
 
-```
+```text
 DSMarket_TFM/
 │
 ├── 📓 notebook/
-│   ├── 00_tfm_dsmarket.ipynb          # Portada, índice y guía de lectura
-│   ├── 01_eda-business.ipynb          # Análisis exploratorio e historia de negocio
-│   ├── 02_clustering.ipynb            # Segmentación de productos y tiendas
-│   ├── 03_forecasting-final.ipynb     # Construcción y evaluación del modelo
-│   ├── 04_stock.ipynb                 # Propuesta de reposición de stock
-│   └── 05_pipeline_api.ipynb          # Pipeline modular y diseño de API
+│   ├── 00_tfm_dsmarket.ipynb          # Cover, index and reading guide
+│   ├── 01_eda-business.ipynb          # Exploratory analysis and business story
+│   ├── 02_clustering.ipynb            # Product and store segmentation
+│   ├── 03_forecasting-final.ipynb     # Model construction and evaluation
+│   ├── 04_stock.ipynb                 # Stock replenishment proposal
+│   └── 05_pipeline_api.ipynb          # Modular pipeline and API design
 │
-├── 📦 src/                            # Código modular reutilizable
+├── 📦 src/                            # Reusable modular code
 │   ├── __init__.py
-│   ├── config.py                      # Parámetros globales del proyecto
-│   ├── paths.py                       # Rutas portables entre entornos
-│   ├── preprocessing.py               # Limpieza y transformación de datos
-│   ├── preprocessing_suggested.py     # Versión alternativa de preprocesado
-│   ├── forecasting_utils.py           # Utilidades del modelo de forecasting
-│   ├── plotting.py                    # Visualizaciones reutilizables
-│   ├── utils.py                       # Funciones de apoyo generales
-│   └── api/                           # Endpoint FastAPI
+│   ├── config.py                      # Global project parameters
+│   ├── paths.py                       # Portable paths across environments
+│   ├── preprocessing.py               # Data cleaning and transformation
+│   ├── preprocessing_suggested.py     # Alternative preprocessing version
+│   ├── forecasting_utils.py           # Forecasting model utilities
+│   ├── plotting.py                    # Reusable visualizations
+│   ├── utils.py                       # General helper functions
+│   └── api/                           # FastAPI endpoint
 │       ├── __init__.py
-│       ├── main.py                    # Aplicación FastAPI
-│       ├── schemas.py                 # Modelos Pydantic (request/response)
-│       └── service.py                 # Lógica de inferencia
+│       ├── main.py                    # FastAPI application
+│       ├── schemas.py                 # Pydantic models (request/response)
+│       └── service.py                 # Inference logic
 │
 ├── 📂 data/
-│   ├── raw/                           # Datos originales (solo lectura)
-│   ├── processed/                     # Datos listos para modelado
+│   ├── raw/                           # Original data (read-only)
+│   ├── processed/                     # Data ready for modeling
 │   │   ├── clusters_productos.csv
 │   │   └── clusters_tiendas.csv
-│   └── csv para power bi/             # Exportaciones para el dashboard BI
+│   └── csv para power bi/             # Exports for the BI dashboard
 │       ├── clusters_productos.csv
 │       ├── clusters_tiendas.csv
 │       ├── dim_category.csv
@@ -122,21 +118,21 @@ DSMarket_TFM/
 │       └── profile_priority.csv
 │
 ├── 🤖 models/
-│   ├── model_E1.txt                   # Modelo LightGBM E1 (lags + rolling + calendario)
-│   ├── model_E2.txt                   # Modelo LightGBM E2 (+ precio + eventos)
-│   ├── model_E3.txt                   # Modelo LightGBM E3 (+ cluster de producto)
-│   ├── calibration_factor.json        # Factor de calibración global (×1.3657)
-│   ├── metrics_final.csv              # Métricas comparativas todos los modelos
-│   ├── metrics_final_calibrado.csv    # Métricas del modelo E2 calibrado en test
-│   ├── preds_E1.npy                   # Predicciones brutas E1
-│   ├── preds_E2.npy                   # Predicciones brutas E2
-│   ├── preds_E2_calibrado.npy         # Predicciones E2 calibradas
-│   ├── preds_E3.npy                   # Predicciones brutas E3
-│   ├── weekly_calibrado.csv           # Agregación semanal calibrada
-│   ├── y_true_test.npy                # Valores reales del período de test
-│   └── idx_test.npy                   # Índices del split de test
+│   ├── model_E1.txt                   # LightGBM E1 model (lags + rolling + calendar)
+│   ├── model_E2.txt                   # LightGBM E2 model (+ price + events)
+│   ├── model_E3.txt                   # LightGBM E3 model (+ product cluster)
+│   ├── calibration_factor.json        # Global calibration factor (×1.3657)
+│   ├── metrics_final.csv              # Comparative metrics for all models
+│   ├── metrics_final_calibrado.csv    # Calibrated E2 metrics on test
+│   ├── preds_E1.npy                   # Raw E1 predictions
+│   ├── preds_E2.npy                   # Raw E2 predictions
+│   ├── preds_E2_calibrado.npy         # Calibrated E2 predictions
+│   ├── preds_E3.npy                   # Raw E3 predictions
+│   ├── weekly_calibrado.csv           # Calibrated weekly aggregation
+│   ├── y_true_test.npy                # Actual values for the test period
+│   └── idx_test.npy                   # Test split indices
 │
-├── 📊 outputs/                        # Exportables y resultados finales
+├── 📊 outputs/                        # Final exports and results
 │   ├── g1_serie_temporal.png
 │   ├── g2_patron_semanal.png
 │   ├── g3_heatmap.png
@@ -147,176 +143,176 @@ DSMarket_TFM/
 │   ├── DSMarket Forecast API - Swagger UI.pdf
 │   ├── DSMarket Forecast API (2) - Swagger UI.pdf
 │   └── powerbi/
-│       └── TFM mateo v01.pbix         # Dashboard Power BI
+│       └── TFM mateo v01.pbix         # Power BI dashboard
 │
-├── 📄 reports/                        # CSVs de apoyo para informes
+├── 📄 reports/                        # Supporting CSVs for reports
 │   ├── dim_category.csv
 │   ├── dim_city.csv
 │   ├── dim_week.csv
 │   ├── fact_city_week.csv
 │   └── profile_priority.csv
 │
-├── EXECUTION_ORDER.md                 # Guía de ejecución y entornos recomendados
+├── EXECUTION_ORDER.md                 # Execution guide and recommended environments
 ├── requirements.txt
 ├── LICENSE
 └── README.md
 ```
 
-> ⚠️ Los archivos CSV del dataset original no están incluidos en el repositorio por su tamaño.
-> Ver la sección [Dataset y fuentes de datos](#-dataset-y-fuentes-de-datos) para obtenerlos.
+> ⚠️ The original dataset CSV files are not included in the repository because of their size.
+> See the [Dataset and data sources](#-dataset-and-data-sources) section to obtain them.
 
 ---
 
-## 📖 Guía de lectura de los notebooks
+## 📖 Notebook reading guide
 
-La secuencia recomendada sigue esta lógica:
+The recommended sequence follows this logic:
 
-| # | Notebook | Propósito | Entorno recomendado |
-|---|----------|-----------|---------------------|
-| 00 | `00_tfm_dsmarket.ipynb` | Portada, índice y contexto del proyecto | Cualquiera |
-| 01 | `01_eda-business.ipynb` | Análisis exploratorio y lectura de negocio | Colab / Kaggle |
-| 02 | `02_clustering.ipynb` | Segmentación de productos (K-Means, K=4) | Local / Kaggle |
-| 03 | `03_forecasting-final.ipynb` | Forecasting LightGBM — núcleo técnico | Kaggle (RAM ampliada) |
-| 04 | `04_stock.ipynb` | Propuesta operativa de reposición | Cualquiera |
-| 05 | `05_pipeline_api.ipynb` | Pipeline modular y diseño de API | Local |
+| # | Notebook | Purpose | Recommended environment |
+|---|----------|---------|-------------------------|
+| 00 | `00_tfm_dsmarket.ipynb` | Cover, index and project context | Any |
+| 01 | `01_eda-business.ipynb` | Exploratory analysis and business interpretation | Colab / Kaggle |
+| 02 | `02_clustering.ipynb` | Product segmentation (K-Means, K=4) | Local / Kaggle |
+| 03 | `03_forecasting-final.ipynb` | LightGBM forecasting — technical core | Kaggle (extended RAM) |
+| 04 | `04_stock.ipynb` | Operational replenishment proposal | Any |
+| 05 | `05_pipeline_api.ipynb` | Modular pipeline and API design | Local |
 
-> 💡 El notebook 03 requiere memoria ampliada en Kaggle por el tamaño del panel tienda × producto × día.
-
----
-
-## 🗄️ Dataset y fuentes de datos
-
-El proyecto utiliza el dataset público **M5 Forecasting — Accuracy** (Kaggle, 2020), reinterpretado como el histórico de ventas de DSMarket.
-
-| Archivo | Descripción |
-|---------|-------------|
-| `item_sales.csv` | Ventas diarias por tienda × producto (formato ancho, d_1…d_N) |
-| `item_prices.csv` | Precio semanal por tienda × producto |
-| `daily_calendar_with_events.csv` | Calendario con eventos especiales |
-
-**Fuente:** [M5 Forecasting — Accuracy · Kaggle](https://www.kaggle.com/competitions/m5-forecasting-accuracy)
-
-Para reproducir el proyecto, descarga los tres archivos y colócalos en `data/raw/`.
+> 💡 Notebook 03 requires extended memory in Kaggle due to the size of the store × product × day panel.
 
 ---
 
-## 🔧 Instalación y configuración
+## 🗄️ Dataset and data sources
 
-### Requisitos previos
+The project uses the public **M5 Forecasting — Accuracy** dataset (Kaggle, 2020), reinterpreted as DSMarket's sales history.
 
-- Python 3.8 o superior
-- pip actualizado
+| File | Description |
+|------|-------------|
+| `item_sales.csv` | Daily sales by store × product (wide format, d_1…d_N) |
+| `item_prices.csv` | Weekly price by store × product |
+| `daily_calendar_with_events.csv` | Calendar with special events |
 
-### Instalación
+**Source:** [M5 Forecasting — Accuracy · Kaggle](https://www.kaggle.com/competitions/m5-forecasting-accuracy)
+
+To reproduce the project, download the three files and place them in `data/raw/`.
+
+---
+
+## 🔧 Installation and setup
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Updated pip
+
+### Installation
 
 ```bash
-# 1. Clonar o descargar el repositorio
-git clone <url-del-repositorio>
+# 1. Clone or download the repository
+git clone <repository-url>
 cd DSMarket_TFM
 
-# 2. Crear entorno virtual (recomendado)
+# 2. Create a virtual environment (recommended)
 python -m venv venv
 
-# Activar en macOS/Linux:
+# Activate on macOS/Linux:
 source venv/bin/activate
 
-# Activar en Windows:
+# Activate on Windows:
 venv\Scripts\activate
 
-# 3. Instalar dependencias
+# 3. Install dependencies
 pip install -r requirements.txt
 ```
 
-### Estructura de datos
+### Data structure
 
 ```bash
-# Coloca los archivos del dataset en:
+# Place the dataset files in:
 data/raw/item_sales.csv
 data/raw/item_prices.csv
 data/raw/daily_calendar_with_events.csv
 ```
 
-### Cargar el modelo directamente
+### Load the model directly
 
-Si solo quieres reproducir la inferencia sin reentrenar:
+If you only want to reproduce inference without retraining:
 
 ```python
 import lightgbm as lgb
 import json
 
-# Cargar modelo y factor de calibración
+# Load model and calibration factor
 model = lgb.Booster(model_file="models/model_E2.txt")
 with open("models/calibration_factor.json", "r") as f:
     calib_factor = json.load(f)  # 1.3657
 
-# Aplicar predicción calibrada
+# Apply calibrated prediction
 pred_raw = model.predict(X)
 pred_calibrado = pred_raw * calib_factor
 ```
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Technologies used
 
-| Categoría | Tecnología |
-|-----------|-----------|
-| **Lenguaje** | Python 3.8+ |
-| **Datos** | Pandas · NumPy · PyArrow |
+| Category | Technology |
+|----------|------------|
+| **Language** | Python 3.8+ |
+| **Data** | Pandas · NumPy · PyArrow |
 | **ML / Forecasting** | LightGBM · scikit-learn · statsmodels |
 | **Clustering** | K-Means (scikit-learn) |
-| **Visualización** | Matplotlib · Seaborn · Plotly |
+| **Visualization** | Matplotlib · Seaborn · Plotly |
 | **BI / Dashboard** | Power BI |
-| **API** | FastAPI (diseño y demostración) |
-| **Entorno** | Kaggle · Google Colab · Local |
+| **API** | FastAPI (design and demo) |
+| **Environment** | Kaggle · Google Colab · Local |
 
 ---
 
-## 📈 Resultados principales
+## 📈 Main results
 
-### Clustering de productos (K=4)
+### Product clustering (K=4)
 
-| Cluster | Nombre | % catálogo | Características |
-|---------|--------|-----------|-----------------|
-| 1 | Básicos de alto volumen | 47% | Alta rotación, precio ~$3.59, baja volatilidad |
-| 3 | Nicho premium | 21% | Precio ~$11, baja rotación, ticket alto |
-| 0 | Estacionales volátiles | 19% | Alta variabilidad, patrón estacional fuerte |
-| 2 | Baja rotación volátil | 13% | Comportamiento poco consolidado |
+| Cluster | Name | % of catalog | Characteristics |
+|---------|------|--------------|-----------------|
+| 1 | High-volume essentials | 47% | High turnover, price ~$3.59, low volatility |
+| 3 | Premium niche | 21% | Price ~$11, low turnover, high ticket |
+| 0 | Volatile seasonal items | 19% | High variability, strong seasonal pattern |
+| 2 | Volatile low-turnover | 13% | Less consolidated behavior |
 
-### Forecasting — Modelo ganador: E2 Calibrado
+### Forecasting — Winning model: Calibrated E2
 
-| Modelo | Descripción | Resultado |
-|--------|-------------|-----------|
-| E0a / E0b | Baselines (media histórica / media móvil) | Referencia mínima |
-| E1 | LightGBM + lags + rolling + calendario | Mejora vs baseline |
-| **E2** | **LightGBM + exógenas (precio + eventos)** | **✅ Mejor técnico** |
-| E2 calibrado | E2 × factor 1.3657 | **✅ Solución operativa recomendada** |
-| E3 | E2 + cluster de producto | Sin mejora adicional sobre E2 |
+| Model | Description | Result |
+|-------|-------------|--------|
+| E0a / E0b | Baselines (historical mean / moving average) | Minimum benchmark |
+| E1 | LightGBM + lags + rolling + calendar | Improvement vs baseline |
+| **E2** | **LightGBM + exogenous features (price + events)** | **✅ Best technical model** |
+| Calibrated E2 | E2 × factor 1.3657 | **✅ Recommended operational solution** |
+| E3 | E2 + product cluster | No additional improvement over E2 |
 
-> El modelo E2 mostró infra-predicción sistemática en test. La calibración global (×1.3657) corrige el sesgo y lo convierte en la solución más adecuada para reposición de stock.
+> The E2 model showed systematic underforecasting on the test set. Global calibration (×1.3657) corrects the bias and makes it the most suitable solution for stock replenishment.
 
-### Fórmula de reposición propuesta
+### Proposed replenishment formula
 
-```
-Pedido_recomendado = max(0, Demanda_calibrada_7d + Safety_stock − Stock_disponible)
+```text
+Recommended_order = max(0, Calibrated_demand_7d + Safety_stock − Available_stock)
 
 Safety_stock = z × σ_error × √L
 ```
 
-Donde `z` depende del nivel de servicio objetivo: 90% · 95% · 99%
+Where `z` depends on the target service level: 90% · 95% · 99%
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
 
-**Nuclio Digital School — Máster en Data Science & AI**
+**Nuclio Digital School — Master's Degree in Data Science & AI**
 
-*Trabajo Final de Máster — DSMarket — 2026*
+*Master's Final Project — DSMarket — 2026*
 
 *Mateo Pascual Esseiva*
 
